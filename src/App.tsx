@@ -1,10 +1,11 @@
 import React from 'react';
+import Home from "./Containers/Home";
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>Casino App</h1>
+      <Home />
     </div>
   );
 }
