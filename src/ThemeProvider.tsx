@@ -30,7 +30,7 @@ const theme = createMuiTheme({
   },
 });
 
-export const AppThemeProvider: FunctionComponent = ({ children }) => {
+const AppThemeProvider: FunctionComponent = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -38,3 +38,5 @@ export const AppThemeProvider: FunctionComponent = ({ children }) => {
     </ThemeProvider>
   );
 };
+
+export default AppThemeProvider

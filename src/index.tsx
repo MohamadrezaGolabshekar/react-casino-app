@@ -1,15 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AppThemeProvider } from "./AppThemeProvider";
+import ThemeProvider from "./ThemeProvider";
+import { Provider } from "./Context/AppContext";
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <AppThemeProvider>
-      <App />
-    </AppThemeProvider>
+    <Provider>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
