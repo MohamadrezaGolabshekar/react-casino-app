@@ -5,6 +5,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from "../../Components/Dialog/DialogTitle";
+import Tab from "../../Components/Tab";
 import useStyles from "./style";
 
 export default function AlertDialog() {
@@ -28,6 +29,7 @@ export default function AlertDialog() {
                     CASINO APP
                 </DialogTitle>
                 <DialogContent dividers>
+                    <Tab />
                     <DialogContentText id="alert-dialog-description">
                         content goes here
                     </DialogContentText>

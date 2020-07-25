@@ -1,8 +1,8 @@
 import DB from "./DB";
-import { IGetItemsRequestBody, IItem, ETabs } from "./Interface";
+import { IGetItemsRequestBody, IItem, ETabs, ITab } from "./Interface";
 
-export const getTabs = () => {
-    return DB.tabs;
+export const getTabs = (): ITab[] => {
+    return DB.tabs as ITab[];
 }
 
 export const getProviders = () => {
@@ -39,11 +39,11 @@ const createTitleArray = (tab: ETabs, title = "") => {
  * create fake data 
  * @param body 
  */
-export const getItems = (body: IGetItemsRequestBody) => {
+export const getItems = async (body: IGetItemsRequestBody) => {
     const items: IItem[] = [] as IItem[];
     const titleArray = createTitleArray(body.tab, body.title);
     if (!titleArray.length) {
-        return [];
+        return await setTimeout(() => [], 1000);
     }
 
     for (let i = 1; i <= body.limit || 20; i++) {
@@ -57,5 +57,5 @@ export const getItems = (body: IGetItemsRequestBody) => {
         };
         items.push(item);
     };
-    return items;
+    return await setTimeout(() => items, 1000);
 }

@@ -4,5 +4,5 @@ export interface IAction {
 }
 
 export enum ActionType {
-    TEST = "TEST"
+    CHANGE_TABS = "CHANGE_TABS"
 }

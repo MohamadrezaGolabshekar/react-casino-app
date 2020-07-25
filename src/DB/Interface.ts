@@ -17,6 +17,12 @@ export interface IItem {
     thumbnail: string;
 }
 
+export interface ITab {
+    id: string;
+    title: ETabs;
+}
+
+
 export enum ETabs {
     GAMES_TAB_ITEMS = "gamesTabItems",
     CATEGORY_TAB_ITEMS = "categoryTabItems",

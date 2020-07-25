@@ -1,11 +1,11 @@
-import { EStatus } from "./Interface";
+import { EStatus, ETabs } from "./Interface";
 
 const DB = {
     tabs: [
-        { id: "t1", title: "Games" },
-        { id: "t2", title: "Categories" },
-        { id: "t3", title: "Types" },
-        { id: "t4", title: "Providers" }
+        { id: ETabs.GAMES_TAB_ITEMS, title: "Games" },
+        { id: ETabs.CATEGORY_TAB_ITEMS, title: "Categories" },
+        { id: ETabs.TYPE_TAB_ITEMS, title: "Types" },
+        { id: ETabs.PROVIDER_TAB_ITEMS, title: "Providers" }
     ],
     providers: [
         { id: "p1", title: "provider 1" },
