@@ -17,7 +17,6 @@ const Tab: FC = () => {
          */
         const allTabs = await getTabs();
         setTabs(allTabs);
-        console.log("allTabs :: ", allTabs)
     }
 
     useEffect(() => {
