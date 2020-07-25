@@ -30,32 +30,32 @@ const DB = {
 
     // these are four arrays for our four tab
     gamesTabItems: [
-        { id: "gt1", title: "game tab 1" },
-        { id: "gt2", title: "game tab 2" },
-        { id: "gt3", title: "game tab 3" },
-        { id: "gt4", title: "game tab 4" },
-        { id: "gt5", title: "game tab 5" },
+        { id: "gt1", title: "Fashion (game tab)" },
+        { id: "gt2", title: "Club (game tab)" },
+        { id: "gt3", title: "Blackjack (game tab)" },
+        { id: "gt4", title: "Bikini angels (game tab)" },
+        { id: "gt5", title: "Fruits (game tab)" },
     ],
     categoryTabItems: [
-        { id: "ct1", title: "category tab 1" },
-        { id: "ct2", title: "category tab 2" },
-        { id: "ct3", title: "category tab 3" },
-        { id: "ct4", title: "category tab 4" },
-        { id: "ct5", title: "category tab 5" },
+        { id: "ct1", title: "Club (category tab)" },
+        { id: "ct2", title: "Blackjack (category tab)" },
+        { id: "ct3", title: "Fashion (category tab)" },
+        { id: "ct4", title: "Bikini angels (category tab)" },
+        { id: "ct5", title: "Fruits (category tab)" },
     ],
     typeTabItems: [
-        { id: "tt1", title: "type tab 1" },
-        { id: "tt2", title: "type tab 2" },
-        { id: "tt3", title: "type tab 3" },
-        { id: "tt4", title: "type tab 4" },
-        { id: "tt5", title: "type tab 5" },
+        { id: "tt1", title: "Bikini angels (type tab)" },
+        { id: "tt2", title: "Fruits (type tab)" },
+        { id: "tt3", title: "Blackjack (type tab)" },
+        { id: "tt4", title: "Fashion (type tab)" },
+        { id: "tt5", title: "Club (type tab)" },
     ],
     providerTabItems: [
-        { id: "pt1", title: "provider tab 1" },
-        { id: "pt2", title: "provider tab 2" },
-        { id: "pt3", title: "provider tab 3" },
-        { id: "pt4", title: "provider tab 4" },
-        { id: "pt5", title: "provider tab 5" },
+        { id: "pt1", title: "Fruits (provider tab)" },
+        { id: "pt2", title: "Club (provider tab)" },
+        { id: "pt3", title: "Fruits (provider tab)" },
+        { id: "pt4", title: "Blackjack (provider tab)" },
+        { id: "pt5", title: "Bikini angels (provider tab)" },
     ]
 };
 

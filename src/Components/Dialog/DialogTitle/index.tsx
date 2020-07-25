@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
+import Hidden from '@material-ui/core/Hidden';
 import Tooltip from '@material-ui/core/Tooltip';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import IconButton from '@material-ui/core/IconButton';
@@ -45,22 +46,24 @@ const DialogTitle: any = withStyles(styles as any)((props) => {
                     <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
                         <CloseIcon />
                     </IconButton>
-                    <ClickAwayListener onClickAway={handleTooltipClose} >
-                        <Tooltip
-                            className={classes.helpButton}
-                            PopperProps={{
-                                disablePortal: true,
-                            }}
-                            onClose={handleTooltipClose}
-                            open={open}
-                            disableFocusListener
-                            disableHoverListener
-                            disableTouchListener
-                            title="This is help text :)"
-                        >
-                            <Button onClick={handleTooltipOpen}><HelpOutlineIcon /></Button>
-                        </Tooltip>
-                    </ClickAwayListener>
+                    <Hidden xsDown>
+                        <ClickAwayListener onClickAway={handleTooltipClose} >
+                            <Tooltip
+                                className={classes.helpButton}
+                                PopperProps={{
+                                    disablePortal: true,
+                                }}
+                                onClose={handleTooltipClose}
+                                open={open}
+                                disableFocusListener
+                                disableHoverListener
+                                disableTouchListener
+                                title="This is help text :)"
+                            >
+                                <Button onClick={handleTooltipOpen}><HelpOutlineIcon /></Button>
+                            </Tooltip>
+                        </ClickAwayListener>
+                    </Hidden>
                 </>
 
             ) : null}

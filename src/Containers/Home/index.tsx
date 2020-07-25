@@ -24,7 +24,13 @@ export default function AlertDialog() {
 
     return (
         <div className={classes.container}>
-            <Button variant="outlined" color="primary" size="large" onClick={handleClickOpen}>
+            <Button 
+                variant="outlined" 
+                color="primary" 
+                size="large" 
+                onClick={handleClickOpen}
+                classes={{root: classes.button}}
+            >
                 casino games
             </Button>
             <Dialog aria-labelledby="customized-dialog-title" open={open} classes={{paper: classes.modalPaper}}>

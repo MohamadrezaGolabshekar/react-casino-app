@@ -27,8 +27,7 @@ const createTitleArray = (tab: ETabs, title = "") => {
     const titleArr: any = [];
     if (title) {
         tabTitles.forEach((itemTitle: string) => {
-            console.log("itemTitle.indexOf(title) :: ", itemTitle.indexOf(title))
-            if (itemTitle.indexOf(title) >= 0) {
+            if (itemTitle.toLowerCase().indexOf(title.toLowerCase()) >= 0) {
                 titleArr.push(itemTitle);
             }
         })
