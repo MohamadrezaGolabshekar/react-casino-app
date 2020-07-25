@@ -25,7 +25,7 @@ const Tab: FC<IProp> = ({selectedTab, dispatch}: IProp) => {
     }, []);
 
     return <div className={classes.tabWrapper}>
-        <ButtonGroup aria-label="tab buttons">
+        <ButtonGroup aria-label="tab buttons" className={classes.buttonGroup}>
             {
                 tabs.map((tabItem: IData) => (
                     <Button

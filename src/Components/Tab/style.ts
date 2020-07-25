@@ -8,6 +8,11 @@ const useStyles = makeStyles((theme) => ({
     disabled: {
         backgroundColor: theme.palette.primary.main,
         color: `${theme.palette.primary.light} !important`
+    },
+    buttonGroup: {
+        display: "flex",
+        justifyContent: "center",
+        flexWrap: "wrap"
     }
 }));
 
