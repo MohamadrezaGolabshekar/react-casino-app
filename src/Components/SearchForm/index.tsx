@@ -8,14 +8,14 @@ import useStyles from "./style";
 
 const SearchForm: FC = () => {
     const classes = useStyles();
-    const [, dispatch]: any = useAppContext();
+    const [{ isStartSearchItems }, dispatch]: any = useAppContext();
     
     return (
         <div className={classes.formWrapper}>
-            <SearchTitle dispatch={dispatch} />
-            <SearchCategories dispatch={dispatch} />
-            <SearchProviders dispatch={dispatch} />
-            <SearchStatuses dispatch={dispatch} />
+            <SearchTitle dispatch={dispatch} disabled={isStartSearchItems} />
+            <SearchCategories dispatch={dispatch} disabled={isStartSearchItems} />
+            <SearchProviders dispatch={dispatch} disabled={isStartSearchItems} />
+            <SearchStatuses dispatch={dispatch} disabled={isStartSearchItems} />
         </div>
     )
 

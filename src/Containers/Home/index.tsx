@@ -7,6 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from "../../Components/Dialog/DialogTitle";
 import Tab from "../../Components/Tab";
 import SearchForm from "../../Components/SearchForm";
+import ListItems from "../../Components/ListItems";
 import { useAppContext } from "../../Context/AppContext";
 import useStyles from "./style";
 
@@ -33,10 +34,10 @@ export default function AlertDialog() {
                 </DialogTitle>
                 <DialogContent dividers>
                     <Tab selectedTab={state.tab} dispatch={dispatch}/>
+                    <br/>
                     <SearchForm />
-                    <DialogContentText id="alert-dialog-description">
-                        content goes here
-                    </DialogContentText>
+                    <br/>
+                    <ListItems />
                 </DialogContent>
             </Dialog>
         </div>

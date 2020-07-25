@@ -1,9 +1,14 @@
 import { ActionType, IAction } from "./Interface";
 import { ETabs } from "../DB/Interface";
 const initialState = {
+    skip: 0,
+    limit: 20,
     tab: ETabs.GAMES_TAB_ITEMS,
     isStartSearchItems: false,
-    searchTitle: ""
+    searchTitle: "",
+    searchCategory: "",
+    searchProvider: "",
+    searchStatus: ""
 };
 
 const appReducer = (state = initialState, action: IAction) => {
@@ -40,6 +45,18 @@ const appReducer = (state = initialState, action: IAction) => {
             return {
                 ...state,
                 searchStatus: action.payload,
+                isStartSearchItems: true
+            };
+
+        case ActionType.COMPLETE_SEARCH:
+            return {
+                ...state,
+                isStartSearchItems: false
+            };
+
+        case ActionType.START_SEARCH:
+            return {
+                ...state,
                 isStartSearchItems: true
             };
 

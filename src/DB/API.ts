@@ -24,38 +24,42 @@ export const getStatuses = () => {
  */
 const createTitleArray = (tab: ETabs, title = "") => {
     const tabTitles = DB[tab].map(i => i.title);
+    const titleArr: any = [];
     if (title) {
-        const titleArr = [];
         tabTitles.forEach((itemTitle: string) => {
+            console.log("itemTitle.indexOf(title) :: ", itemTitle.indexOf(title))
             if (itemTitle.indexOf(title) >= 0) {
                 titleArr.push(itemTitle);
             }
         })
     }
-    return tabTitles;
+    return title ? titleArr : tabTitles;
 }
 
 /**
  * create fake data 
  * @param body 
  */
-export const getItems = async (body: IGetItemsRequestBody) => {
-    const items: IItem[] = [] as IItem[];
-    const titleArray = createTitleArray(body.tab, body.title);
-    if (!titleArray.length) {
-        return await setTimeout(() => [], 1000);
-    }
-
-    for (let i = 1; i <= body.limit || 20; i++) {
-        const item: IItem = {
-            id: Math.floor(Math.random() * 1000000).toString(),
-            title: titleArray[Math.floor(Math.random() * titleArray.length)],
-            provider: body.provider || DB.providers[Math.floor(Math.random() * DB.providers.length)].title,
-            category: body.category || DB.categories[Math.floor(Math.random() * DB.categories.length)].title,
-            status: body.status || DB.statuses[Math.floor(Math.random() * DB.statuses.length)].title as EStatus,
-            thumbnail: "https://picsum.photos/300/200"
+export const getItems = (body: IGetItemsRequestBody) => {
+    return new Promise((resolve) => {
+        const items: IItem[] = [] as IItem[];
+        const titleArray = createTitleArray(body.tab, body.title);
+        if (!titleArray.length) {
+            setTimeout(() => resolve([]), 600);
+        }
+        const limit = body.limit || 20;
+        for (let i = 1; i <= limit; i++) {
+            const id = Math.floor(Math.random() * 1000000).toString();
+            const item: IItem = {
+                id,
+                title: titleArray[Math.floor(Math.random() * titleArray.length)],
+                provider: body.provider || DB.providers[Math.floor(Math.random() * DB.providers.length)].title,
+                category: body.category || DB.categories[Math.floor(Math.random() * DB.categories.length)].title,
+                status: body.status || DB.statuses[Math.floor(Math.random() * DB.statuses.length)].title as EStatus,
+                thumbnail: `https://picsum.photos/300/200?q=${id}`
+            };
+            items.push(item);
         };
-        items.push(item);
-    };
-    return await setTimeout(() => items, 1000);
+        setTimeout(() => resolve(items), 600);
+    })
 }

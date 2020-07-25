@@ -26,3 +26,11 @@ export const searchTitleAction = (payload: string): IAction => {
         type: ActionType.SEARCH_TITLE, payload
     }
 };
+
+export const completeSearchAction = () => ({
+    type: ActionType.COMPLETE_SEARCH
+});
+
+export const startSearchAction = () => ({
+    type: ActionType.START_SEARCH
+});

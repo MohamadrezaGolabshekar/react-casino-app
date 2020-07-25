@@ -6,12 +6,13 @@ import { searchTitleAction } from "../../../Context/Actions";
 // import { debounce } from "../../../services/debounce";
 import { IProp } from "./Interface";
 
-const Title: FC<IProp> = ({ dispatch }: IProp) => {
+const Title: FC<IProp> = ({ dispatch, disabled }: IProp) => {
     console.log("in search title");
     return (
         <TextField
             label="Search"
             variant="outlined"
+            disabled={disabled}
             size="small"
             onChange={(e) => dispatch(searchTitleAction(e.target.value))}
             InputProps={{

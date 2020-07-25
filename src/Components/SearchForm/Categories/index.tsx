@@ -10,7 +10,7 @@ import { IProp } from "./Interface";
 import useStyles from "../style";
 
 
-const Categories: FC<IProp> = ({ dispatch }: IProp) => {
+const Categories: FC<IProp> = ({ dispatch, disabled }: IProp) => {
     const [categories, setCategories] = useState<IData[]>([] as IData[]);
     const classes = useStyles();
 
@@ -33,6 +33,7 @@ const Categories: FC<IProp> = ({ dispatch }: IProp) => {
             <Select
                 labelId="demo-simple-select-outlined-label"
                 id="demo-simple-select-outlined"
+                disabled={disabled}
                 onChange={(event) => dispatch(searchCategoryAction(event?.target?.value as string))}
                 label="Category"
                 placeholder="All Categories"

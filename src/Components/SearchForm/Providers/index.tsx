@@ -9,7 +9,7 @@ import { IData } from "../../../DB/Interface";
 import { IProp } from "./Interface";
 import useStyles from "../style";
 
-const Providers: FC<IProp> = ({ dispatch }: IProp) => {
+const Providers: FC<IProp> = ({ dispatch, disabled }: IProp) => {
     const [providers, setProviders] = useState<IData[]>([] as IData[])
     const classes = useStyles();
 
@@ -32,6 +32,7 @@ const Providers: FC<IProp> = ({ dispatch }: IProp) => {
             <Select
                 labelId="demo-simple-select-outlined-label"
                 id="demo-simple-select-outlined"
+                disabled={disabled}
                 onChange={(event) => dispatch(searchProviderAction(event?.target?.value as string))}
                 label="Category"
                 placeholder="All Providers"

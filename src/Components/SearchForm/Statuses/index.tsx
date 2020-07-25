@@ -9,7 +9,7 @@ import { IData } from "../../../DB/Interface";
 import { IProp } from "./Interface";
 import useStyles from "../style";
 
-const Statuses: FC<IProp> = ({ dispatch }: IProp) => {
+const Statuses: FC<IProp> = ({ dispatch, disabled }: IProp) => {
     const [statuses, setStatuses] = useState<IData[]>([] as IData[]);
     const classes = useStyles();
 
@@ -32,6 +32,7 @@ const Statuses: FC<IProp> = ({ dispatch }: IProp) => {
             <Select
                 labelId="demo-simple-select-outlined-label"
                 id="demo-simple-select-outlined"
+                disabled={disabled}
                 onChange={(event) => dispatch(searchStatusAction(event?.target?.value as string))}
                 label="Category"
                 placeholder="All Statuses"

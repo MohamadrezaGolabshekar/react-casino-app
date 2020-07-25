@@ -1,4 +1,5 @@
 
 export interface IProp { 
-    dispatch: any
+    dispatch: any;
+    disabled: boolean;
 }
