@@ -3,12 +3,17 @@ import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
 import { searchTitleAction } from "../../../Context/Actions";
-// import { debounce } from "../../../services/debounce";
+import { debounce } from "../../../services/debounce";
 import { IProp } from "./Interface";
 import useStyles from "../style";
 
 const Title: FC<IProp> = ({ dispatch, disabled }: IProp) => {
     const classes = useStyles();
+
+    const submit = (val: string) => {
+        dispatch(searchTitleAction(val as string));
+    };
+
     return (
         <TextField
             className={classes.formControl}
@@ -16,7 +21,7 @@ const Title: FC<IProp> = ({ dispatch, disabled }: IProp) => {
             variant="outlined"
             disabled={disabled}
             size="small"
-            onChange={(e) => dispatch(searchTitleAction(e.target.value))}
+            onChange={(e) => debounce(submit, 400)(e.target.value)}
             InputProps={{
                 endAdornment: (
                     <InputAdornment position="end">

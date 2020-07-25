@@ -1,16 +1,15 @@
-
+let timeout: any;
 export const debounce = (func: Function, delay?: number) => {
-    let timeout: any;
-    return function f(...args: any) {
+    return function f(e?: any) {
         const callNow = !delay && !timeout;
         clearTimeout(timeout);
         timeout = setTimeout(() => {
             timeout = null;
 
             if (delay) {
-                func(...args);
+                func(e);
             }
         }, delay);
-        if (callNow) func(...args);
+        if (callNow) func(e);
     };
 };
