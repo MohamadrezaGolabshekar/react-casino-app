@@ -11,6 +11,10 @@ const useStyles = makeStyles(() => ({
     modalPaper: {
         width: "95vw",
         maxWidth: "100% !important"
+    },
+    loading: {
+        position: "absolute",
+        top: 16
     }
 }));
 

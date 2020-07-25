@@ -1,8 +1,7 @@
 import React from 'react';
-
+import CircularProgress from "@material-ui/core/CircularProgress";
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from "../../Components/Dialog/DialogTitle";
 import Tab from "../../Components/Tab";
@@ -13,7 +12,7 @@ import useStyles from "./style";
 
 export default function AlertDialog() {
     const [open, setOpen] = React.useState(false);
-    const [state, dispatch]: any = useAppContext();
+    const [{isStartSearchItems, tab}, dispatch]: any = useAppContext();
     const classes = useStyles();
     const handleClickOpen = () => {
         setOpen(true);
@@ -25,16 +24,16 @@ export default function AlertDialog() {
 
     return (
         <div className={classes.container}>
-            <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+            <Button variant="outlined" color="primary" size="large" onClick={handleClickOpen}>
                 casino games
             </Button>
             <Dialog aria-labelledby="customized-dialog-title" open={open} classes={{paper: classes.modalPaper}}>
                 <DialogTitle onClose={handleClose}>
-                    CASINO APP
+                    CASINO APP {isStartSearchItems && <CircularProgress className={classes.loading} size={20} thickness={4} />}
                 </DialogTitle>
                 <DialogContent dividers>
-                    <Tab selectedTab={state.tab} dispatch={dispatch}/>
-                    <br/>
+                    <Tab selectedTab={tab} dispatch={dispatch}/>
+                    <br/><br/>
                     <SearchForm />
                     <br/>
                     <ListItems />

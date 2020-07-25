@@ -1,9 +1,7 @@
 import React, { FC, useEffect } from "react";
-import CircularProgress from "@material-ui/core/CircularProgress";
-
 import useSearchItems from "../../hooks/useSearchItems";
 import { IItem } from "../../DB/Interface";
-import { startSearchAction } from "../../Context/Actions";
+import { startSearchAction, resetSearchAction } from "../../Context/Actions";
 import { useAppContext } from "../../Context/AppContext";
 import CardItem from "../Item";
 import useStyles from "./style";
@@ -14,15 +12,12 @@ const ListItems: FC = () => {
     const classes = useStyles();
     useEffect(() => {
         dispatch(startSearchAction());
+        return () => dispatch(resetSearchAction());
     }, []);
 
     return (
         <div className={classes.listWrapper}>
             {
-                isStartSearchItems ? 
-                <div className={classes.listWrapper}>
-                    <CircularProgress size={34} thickness={4} />
-                </div> :
                 items.length ?
                 <div className={classes.cardsWrapper}>
                     {
@@ -31,7 +26,7 @@ const ListItems: FC = () => {
                         ))
                     }
                 </div>:
-                <div className={classes.listWrapper}>No matched data :(</div> 
+                !isStartSearchItems ? "No matched data :(" : null
             }
         </div>
     )

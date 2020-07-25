@@ -60,6 +60,19 @@ const appReducer = (state = initialState, action: IAction) => {
                 isStartSearchItems: true
             };
 
+        case ActionType.RESET_SEARCH:
+            return {
+                ...state,
+                skip: 0,
+                limit: 20,
+                tab: ETabs.GAMES_TAB_ITEMS,
+                isStartSearchItems: false,
+                searchTitle: "",
+                searchCategory: "",
+                searchProvider: "",
+                searchStatus: ""
+            };
+
         default:
             return state;
     }

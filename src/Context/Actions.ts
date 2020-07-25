@@ -34,3 +34,7 @@ export const completeSearchAction = () => ({
 export const startSearchAction = () => ({
     type: ActionType.START_SEARCH
 });
+
+export const resetSearchAction = () => ({
+    type: ActionType.RESET_SEARCH
+});

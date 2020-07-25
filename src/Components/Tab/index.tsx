@@ -5,11 +5,12 @@ import { changeTabsAction } from "../../Context/Actions";
 import { getTabs } from "../../DB/API";
 import { IData, ETabs } from "../../DB/Interface";
 import { IProp } from "./Interface";
+import useStyles from "./style";
 
 const Tab: FC<IProp> = ({selectedTab, dispatch}: IProp) => {
     console.log("in TAB component")
     const [tabs, setTabs] = useState<IData[]>([] as IData[]);
-
+    const classes = useStyles();
     const fetchTabs = async () => {
         /**
          * we do not need to use async/await because our fetching is sync for now
@@ -23,11 +24,12 @@ const Tab: FC<IProp> = ({selectedTab, dispatch}: IProp) => {
         fetchTabs();
     }, []);
 
-    return <div >
+    return <div className={classes.tabWrapper}>
         <ButtonGroup aria-label="tab buttons">
             {
                 tabs.map((tabItem: IData) => (
                     <Button
+                        classes={{disabled: classes.disabled}}
                         key={tabItem.id}
                         disabled={selectedTab === tabItem.id}
                         onClick={() => dispatch(changeTabsAction(tabItem.id as ETabs))}
