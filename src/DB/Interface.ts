@@ -17,7 +17,7 @@ export interface IItem {
     thumbnail: string;
 }
 
-export interface ITab {
+export interface IData {
     id: string;
     title: ETabs;
 }

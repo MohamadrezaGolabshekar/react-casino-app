@@ -1,20 +1,20 @@
 import DB from "./DB";
-import { IGetItemsRequestBody, IItem, ETabs, ITab } from "./Interface";
+import { IGetItemsRequestBody, IItem, ETabs, IData, EStatus } from "./Interface";
 
-export const getTabs = (): ITab[] => {
-    return DB.tabs as ITab[];
+export const getTabs = (): IData[] => {
+    return DB.tabs as IData[];
 }
 
 export const getProviders = () => {
-    return DB.providers;
+    return DB.providers as IData[];
 }
 
 export const getCategories = () => {
-    return DB.categories;
+    return DB.categories as IData[];
 }
 
 export const getStatuses = () => {
-    return DB.statuses
+    return DB.statuses as IData[];
 }
 
 /**
@@ -52,7 +52,7 @@ export const getItems = async (body: IGetItemsRequestBody) => {
             title: titleArray[Math.floor(Math.random() * titleArray.length)],
             provider: body.provider || DB.providers[Math.floor(Math.random() * DB.providers.length)].title,
             category: body.category || DB.categories[Math.floor(Math.random() * DB.categories.length)].title,
-            status: body.status || DB.statuses[Math.floor(Math.random() * DB.statuses.length)].title,
+            status: body.status || DB.statuses[Math.floor(Math.random() * DB.statuses.length)].title as EStatus,
             thumbnail: "https://picsum.photos/300/200"
         };
         items.push(item);

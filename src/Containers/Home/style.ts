@@ -7,6 +7,10 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+    },
+    modalPaper: {
+        width: "95vw",
+        maxWidth: "100% !important"
     }
 }));
 

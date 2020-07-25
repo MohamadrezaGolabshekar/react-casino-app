@@ -6,10 +6,13 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from "../../Components/Dialog/DialogTitle";
 import Tab from "../../Components/Tab";
+import SearchForm from "../../Components/SearchForm";
+import { useAppContext } from "../../Context/AppContext";
 import useStyles from "./style";
 
 export default function AlertDialog() {
     const [open, setOpen] = React.useState(false);
+    const [state, dispatch]: any = useAppContext();
     const classes = useStyles();
     const handleClickOpen = () => {
         setOpen(true);
@@ -24,12 +27,13 @@ export default function AlertDialog() {
             <Button variant="outlined" color="primary" onClick={handleClickOpen}>
                 casino games
             </Button>
-            <Dialog aria-labelledby="customized-dialog-title" open={open}>
+            <Dialog aria-labelledby="customized-dialog-title" open={open} classes={{paper: classes.modalPaper}}>
                 <DialogTitle onClose={handleClose}>
                     CASINO APP
                 </DialogTitle>
                 <DialogContent dividers>
-                    <Tab />
+                    <Tab selectedTab={state.tab} dispatch={dispatch}/>
+                    <SearchForm />
                     <DialogContentText id="alert-dialog-description">
                         content goes here
                     </DialogContentText>

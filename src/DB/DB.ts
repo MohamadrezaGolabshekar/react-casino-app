@@ -24,8 +24,8 @@ const DB = {
         { id: "c6", title: "category 6" },
     ],
     statuses: [
-        { id: "s1", title: EStatus.ACTIVE },
-        { id: "s2", title: EStatus.DISABLE }
+        { id: "s1", title: EStatus.ACTIVE as string },
+        { id: "s2", title: EStatus.DISABLE as string }
     ],
 
     // these are four arrays for our four tab
