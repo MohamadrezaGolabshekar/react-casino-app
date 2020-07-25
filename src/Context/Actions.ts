@@ -20,6 +20,10 @@ export const searchStatusAction = (payload: string): IAction => ({
     type: ActionType.SEARCH_STATUS, payload
 });
 
+export const searchLimitAction = (payload: number): IAction => ({
+    type: ActionType.SEARCH_LIMIT, payload
+});
+
 export const searchTitleAction = (payload: string): IAction => {
     console.log("payload :: ", payload)
     return {

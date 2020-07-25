@@ -48,6 +48,13 @@ const appReducer = (state = initialState, action: IAction) => {
                 isStartSearchItems: true
             };
 
+        case ActionType.SEARCH_LIMIT:
+            return {
+                ...state,
+                limit: action.payload,
+                isStartSearchItems: true
+            };
+
         case ActionType.COMPLETE_SEARCH:
             return {
                 ...state,

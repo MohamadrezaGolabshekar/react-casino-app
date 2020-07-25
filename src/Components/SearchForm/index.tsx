@@ -3,6 +3,7 @@ import SearchTitle from "./Title";
 import SearchCategories from "./Categories";
 import SearchProviders from "./Providers";
 import SearchStatuses from "./Statuses";
+import SearchLimit from "./limit";
 import { useAppContext } from "../../Context/AppContext";
 import useStyles from "./style";
 
@@ -16,6 +17,7 @@ const SearchForm: FC = () => {
             <SearchCategories dispatch={dispatch} disabled={isStartSearchItems} />
             <SearchProviders dispatch={dispatch} disabled={isStartSearchItems} />
             <SearchStatuses dispatch={dispatch} disabled={isStartSearchItems} />
+            <SearchLimit dispatch={dispatch} disabled={isStartSearchItems} />
         </div>
     )
 

@@ -10,7 +10,8 @@ const useStyles = makeStyles((theme) => ({
     },
     root: {
         width: 300,
-        marginTop: theme.spacing(3)
+        marginTop: theme.spacing(3),
+        marginLeft: theme.spacing(1)
     },
     media: {
         height: 0,
