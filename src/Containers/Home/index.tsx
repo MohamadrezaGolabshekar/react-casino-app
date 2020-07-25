@@ -23,7 +23,7 @@ export default function AlertDialog() {
             <Button variant="outlined" color="primary" onClick={handleClickOpen}>
                 casino games
             </Button>
-            <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
+            <Dialog aria-labelledby="customized-dialog-title" open={open}>
                 <DialogTitle onClose={handleClose}>
                     CASINO APP
                 </DialogTitle>
