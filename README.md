@@ -12,3 +12,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * `npm start` *Or* `yarn start`
 
 * Use [localhost:3000](http://localhost:3000/) :)
+
+
+![main page](https://drive.google.com/uc?export=view&id=1WGrWPzz50DKZnxsqgox03p8tZWIzkuKI)
