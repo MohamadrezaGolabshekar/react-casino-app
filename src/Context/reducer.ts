@@ -9,7 +9,8 @@ const initialState = {
     searchCategory: "",
     searchProvider: "",
     searchStatus: "",
-    loadMore: false
+    loadMore: false,
+    hasItems: false
 };
 
 const appReducer = (state = initialState, action: IAction) => {
@@ -59,6 +60,7 @@ const appReducer = (state = initialState, action: IAction) => {
         case ActionType.COMPLETE_SEARCH:
             return {
                 ...state,
+                ...action.payload,
                 isStartSearchItems: false,
                 loadMore: false
             };
@@ -87,7 +89,8 @@ const appReducer = (state = initialState, action: IAction) => {
                 searchCategory: "",
                 searchProvider: "",
                 searchStatus: "",
-                loadMore: false
+                loadMore: false,
+                hasItems: false
             };
 
         default:

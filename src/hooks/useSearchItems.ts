@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useAppContext } from "../Context/AppContext";
 import { IItem, IGetItemsRequestBody } from "../DB/Interface";
 import { getItems } from "../DB/API";
-import {completeSearchAction} from "../Context/Actions"
+import { completeSearchAction } from "../Context/Actions"
 
 function useSearchItems() {
     const [items, setItems] = useState<IItem[]>([] as IItem[]);
@@ -19,16 +19,14 @@ function useSearchItems() {
                 provider: state.searchProvider || "",
                 status: state.searchStatus || ""
             }
-            
             const fetchedItems: IItem[] = await getItems(body) as IItem[];
             if (state.loadMore) {
                 setItems([...items, ...fetchedItems]);
             } else {
                 setItems(fetchedItems);
             }
-            
-            console.log(9999, fetchedItems)
-            dispatch(completeSearchAction());
+
+            dispatch(completeSearchAction({ hasItems: !!fetchedItems.length }));
         } catch (error) {
             console.log(error);
         }

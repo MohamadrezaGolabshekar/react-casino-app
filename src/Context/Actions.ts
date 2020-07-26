@@ -24,15 +24,12 @@ export const searchLimitAction = (payload: number): IAction => ({
     type: ActionType.SEARCH_LIMIT, payload
 });
 
-export const searchTitleAction = (payload: string): IAction => {
-    console.log("payload :: ", payload)
-    return {
-        type: ActionType.SEARCH_TITLE, payload
-    }
-};
+export const searchTitleAction = (payload: string): IAction => ({
+    type: ActionType.SEARCH_TITLE, payload
+});
 
-export const completeSearchAction = () => ({
-    type: ActionType.COMPLETE_SEARCH
+export const completeSearchAction = (payload: { hasItems: boolean }) => ({
+    type: ActionType.COMPLETE_SEARCH, payload
 });
 
 export const startSearchAction = () => ({

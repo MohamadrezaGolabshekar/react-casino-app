@@ -12,7 +12,7 @@ import useStyles from "./style";
 
 export default function AlertDialog() {
     const [open, setOpen] = React.useState(false);
-    const [{isStartSearchItems, tab}, dispatch]: any = useAppContext();
+    const [{ isStartSearchItems, tab }, dispatch]: any = useAppContext();
     const classes = useStyles();
     const handleClickOpen = () => {
         setOpen(true);
@@ -24,24 +24,24 @@ export default function AlertDialog() {
 
     return (
         <div className={classes.container}>
-            <Button 
-                variant="outlined" 
-                color="primary" 
-                size="large" 
+            <Button
+                variant="outlined"
+                color="primary"
+                size="large"
                 onClick={handleClickOpen}
-                classes={{root: classes.button}}
+                classes={{ root: classes.button }}
             >
                 casino games
             </Button>
-            <Dialog aria-labelledby="customized-dialog-title" open={open} classes={{paper: classes.modalPaper}}>
+            <Dialog aria-labelledby="customized-dialog-title" open={open} classes={{ paper: classes.modalPaper }}>
                 <DialogTitle onClose={handleClose}>
                     CASINO APP {isStartSearchItems && <CircularProgress className={classes.loading} size={20} thickness={4} />}
                 </DialogTitle>
                 <DialogContent dividers>
-                    <Tab selectedTab={tab} dispatch={dispatch}/>
-                    <br/><br/>
+                    <Tab selectedTab={tab} dispatch={dispatch} />
+                    <br /><br />
                     <SearchForm />
-                    <br/>
+                    <br />
                     <ListItems />
                 </DialogContent>
             </Dialog>

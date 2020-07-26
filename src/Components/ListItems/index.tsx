@@ -21,17 +21,17 @@ const ListItems: FC = () => {
         <div className={classes.listWrapper} id="list-items">
             {
                 items.length ?
-                <>
-                <div className={classes.cardsWrapper}>
-                    {
-                        items.map((item: IItem) => (
-                            <CardItem key={item.id} item={item}/>
-                        ))
-                    }
-                </div>
-                {loadMore && <div className={classes.loading}>Loading...</div>}
-                </> :
-                !isStartSearchItems ? "No matched data :(" : null
+                    <>
+                        <div className={classes.cardsWrapper}>
+                            {
+                                items.map((item: IItem) => (
+                                    <CardItem key={item.id} item={item} />
+                                ))
+                            }
+                        </div>
+                        {loadMore && <div className={classes.loading}>Loading...</div>}
+                    </> :
+                    !isStartSearchItems ? <h3>No matched data :(</h3> : null
             }
         </div>
     )

@@ -8,7 +8,7 @@ import { IProp } from "./Interface";
 import useStyles from "./style";
 
 const Tab: FC<IProp> = ({selectedTab, dispatch}: IProp) => {
-    console.log("in TAB component")
+
     const [tabs, setTabs] = useState<IData[]>([] as IData[]);
     const classes = useStyles();
     const fetchTabs = async () => {

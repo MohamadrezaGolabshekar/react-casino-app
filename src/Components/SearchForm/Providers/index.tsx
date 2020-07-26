@@ -25,7 +25,7 @@ const Providers: FC<IProp> = ({ dispatch, disabled }: IProp) => {
     useEffect(() => {
         fetchTabs();
     }, []);
-    
+
     return (
         <FormControl variant="outlined" size="small" className={classes.formControl}>
             <InputLabel id="demo-simple-select-outlined-label">Providers</InputLabel>
