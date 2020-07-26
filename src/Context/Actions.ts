@@ -42,3 +42,7 @@ export const startSearchAction = () => ({
 export const resetSearchAction = () => ({
     type: ActionType.RESET_SEARCH
 });
+
+export const loadMoreAction = () => ({
+    type: ActionType.LOAD_MORE
+});

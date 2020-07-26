@@ -8,7 +8,8 @@ const initialState = {
     searchTitle: "",
     searchCategory: "",
     searchProvider: "",
-    searchStatus: ""
+    searchStatus: "",
+    loadMore: false
 };
 
 const appReducer = (state = initialState, action: IAction) => {
@@ -58,13 +59,21 @@ const appReducer = (state = initialState, action: IAction) => {
         case ActionType.COMPLETE_SEARCH:
             return {
                 ...state,
-                isStartSearchItems: false
+                isStartSearchItems: false,
+                loadMore: false
             };
 
         case ActionType.START_SEARCH:
             return {
                 ...state,
                 isStartSearchItems: true
+            };
+
+        case ActionType.LOAD_MORE:
+            return {
+                ...state,
+                isStartSearchItems: true,
+                loadMore: true
             };
 
         case ActionType.RESET_SEARCH:
@@ -77,7 +86,8 @@ const appReducer = (state = initialState, action: IAction) => {
                 searchTitle: "",
                 searchCategory: "",
                 searchProvider: "",
-                searchStatus: ""
+                searchStatus: "",
+                loadMore: false
             };
 
         default:

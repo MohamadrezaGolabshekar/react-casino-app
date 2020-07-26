@@ -21,7 +21,12 @@ function useSearchItems() {
             }
             
             const fetchedItems: IItem[] = await getItems(body) as IItem[];
-            setItems(fetchedItems);
+            if (state.loadMore) {
+                setItems([...items, ...fetchedItems]);
+            } else {
+                setItems(fetchedItems);
+            }
+            
             console.log(9999, fetchedItems)
             dispatch(completeSearchAction());
         } catch (error) {
